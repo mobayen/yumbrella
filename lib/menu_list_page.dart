@@ -10,7 +10,7 @@ class MenuListPage extends StatelessWidget {
   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
   final MenuController menus = Get.find();
 
-  List<Menu> theMenus = [
+  final List<Menu> theMenus = [
     Menu(
       'Pink Flamingos',
       ingredients:
