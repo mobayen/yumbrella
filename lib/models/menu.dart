@@ -1,4 +1,6 @@
 class Menu {
+  bool? _isPublic;
+  bool? _isUpdated;
   String _title = '';
   double? _price;
   String? _ingredients;
@@ -6,6 +8,7 @@ class Menu {
 
   Menu(
     String title, {
+    bool? isPublic,
     String? ingredients,
     double? price,
     String? description,
@@ -14,10 +17,24 @@ class Menu {
     _price = price;
     _ingredients = ingredients;
     _description = description;
+    _isPublic = isPublic;
+
+    // the default is false
+    _isUpdated = false;
   }
 
   String get title {
     return _title.toUpperCase();
+  }
+
+  set title(String newTitle) {
+    print(_title);
+    print(newTitle);
+
+    // mark the menu item as updated
+    _isUpdated = true;
+
+    _title = newTitle;
   }
 
   String get priceFormatted {
@@ -39,6 +56,14 @@ class Menu {
     return _description ?? '';
   }
 
+  bool get isPublic {
+    return _isPublic ?? false;
+  }
+
+  bool get isUpdated {
+    return _isUpdated ?? false;
+  }
+
   bool get isFree {
     bool isFree = false;
 
@@ -51,5 +76,10 @@ class Menu {
     }
 
     return isFree;
+  }
+
+  /// make the menu open to public visitors
+  void unPpublish() {
+    _isPublic = false;
   }
 }

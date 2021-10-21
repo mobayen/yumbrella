@@ -25,11 +25,15 @@ class Home extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ElevatedButton(
-            child: const Text("Go to Menu page"),
+            child: const Text("a published Menu page"),
             onPressed: () => Get.to(MenuPage()),
           ),
           ElevatedButton(
-            child: const Text("Go to Menu list page"),
+            child: const Text("updates a menu item"),
+            onPressed: () => {menus.updateMenu(1)},
+          ),
+          ElevatedButton(
+            child: const Text("ALL Menu items"),
             onPressed: () => Get.to(MenuListPage()),
           ),
         ],
