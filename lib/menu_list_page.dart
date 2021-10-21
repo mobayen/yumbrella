@@ -46,7 +46,7 @@ class MenuListPage extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8),
-        itemCount: entries.length,
+        itemCount: theMenus.length,
         itemBuilder: (BuildContext context, int index) {
           return MenuItemBrief(theMenu: theMenus[index]);
         },
