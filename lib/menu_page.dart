@@ -11,6 +11,20 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Access the updated count variable
-    return Scaffold(body: Center(child: Text("${menus.count}")));
+    return Scaffold(
+      appBar: AppBar(
+        title: Obx(() => Text("Clicks: ${menus.count}")),
+        backgroundColor: Colors.yellow,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // go back
+            Get.back();
+          },
+          child: Text('go back'),
+        ),
+      ),
+    );
   }
 }

@@ -13,7 +13,10 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       // Use Obx(()=> to update Text() whenever count is changed.
-      appBar: AppBar(title: Obx(() => Text("Clicks: ${menus.count}"))),
+      appBar: AppBar(
+        title: Obx(() => Text("Clicks: ${menus.count}")),
+        backgroundColor: Colors.pink,
+      ),
 
       // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
       body: Center(
