@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yumbrella/menu_controller.dart';
+import 'package:yumbrella/menu_list_page.dart';
 import 'package:yumbrella/menu_page.dart';
 
 class Home extends StatelessWidget {
@@ -19,11 +20,19 @@ class Home extends StatelessWidget {
       ),
 
       // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
-      body: Center(
-        child: ElevatedButton(
-          child: const Text("Go to Menu page"),
-          onPressed: () => Get.to(MenuPage()),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ElevatedButton(
+            child: const Text("Go to Menu page"),
+            onPressed: () => Get.to(MenuPage()),
+          ),
+          ElevatedButton(
+            child: const Text("Go to Menu list page"),
+            onPressed: () => Get.to(MenuListPage()),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
