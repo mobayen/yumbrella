@@ -22,8 +22,8 @@ class SquarePage extends StatelessWidget {
           Text('the width: ${ms.width}'),
           Text('the area: ${ms.area()}'),
           Text('the perimeter: ${ms.perimeter()}'),
-          Text('the colorx: ${ms.colorx}'),
-          Text('the shape bg: ${ms.bg}'),
+          Text('the forground: ${ms.forground}'),
+          Text('the shape background: ${ms.background}'),
           ElevatedButton(
             onPressed: () {
               ms.length = 3.3;

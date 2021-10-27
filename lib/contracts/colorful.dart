@@ -1,13 +1,13 @@
 abstract class Colorful {
   /// the color Setter
-  set colorx(String color);
+  set forground(String color);
 
   /// the color Getter
-  String get colorx;
+  String get forground;
 
   /// background Setter
-  set bg(String color);
+  set background(String color);
 
   /// background Getter
-  String get bg;
+  String get background;
 }

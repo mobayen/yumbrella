@@ -8,18 +8,18 @@ class MagicSquare implements Rectangle, Colorful {
   late double _length;
   late double _width;
 
-  late String _bg;
-  late String _colorx;
+  late String _background;
+  late String _forground;
 
   MagicSquare({
     required double length,
-    bg = 'blue',
-    colorx = 'yellow',
+    background = 'blue',
+    forground = 'yellow',
   }) {
     _length = length;
     _width = length;
-    _bg = bg;
-    _colorx = colorx;
+    _background = background;
+    _forground = forground;
   }
 
   /// the isSquare setter does not work for a Square
@@ -71,27 +71,27 @@ class MagicSquare implements Rectangle, Colorful {
 
   // /// the color Setter
   @override
-  set colorx(String v) {
-    _colorx = v;
+  set forground(String v) {
+    _forground = v;
   }
 
   // }
 
   // /// the color Getter
   @override
-  String get colorx {
-    return _colorx;
+  String get forground {
+    return _forground;
   }
 
   // /// background Setter
   @override
-  set bg(String v) {
-    _bg = v;
+  set background(String v) {
+    _background = v;
   }
 
   /// background Getter
   @override
-  String get bg {
-    return _bg;
+  String get background {
+    return _background;
   }
 }
