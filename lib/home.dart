@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yumbrella/counter_controller.dart';
 import 'package:yumbrella/menu_controller.dart';
 import 'package:yumbrella/menu_list_page.dart';
 import 'package:yumbrella/menu_page.dart';
@@ -13,6 +14,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // Instantiate your class using Get.put() to make it available for all "child" routes there.
     final MenuController menus = Get.put(MenuController());
+    final CounterController c = Get.put(CounterController());
 
     return Scaffold(
       // Use Obx(()=> to update Text() whenever count is changed.
@@ -51,12 +53,20 @@ class Home extends StatelessWidget {
               child: const Text("Shape: rectangle"),
               onPressed: () => Get.to(const RectanglePage()),
             ),
+            Obx(() => Text("Clicks ccc: ${c.count}"))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: menus.increment,
+        // onPressed: c.increment,
+        onPressed: () {
+          // NOTE: it is reactive
+          // c.increment();
+
+          // NOTE: it is not reactive!!!
+          c.count = 13.obs;
+        },
       ),
     );
   }
