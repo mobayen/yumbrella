@@ -53,19 +53,21 @@ class Home extends StatelessWidget {
               child: const Text("Shape: rectangle"),
               onPressed: () => Get.to(const RectanglePage()),
             ),
-            Obx(() => Text("Clicks ccc: ${c.count}"))
+            Obx(() {
+              return Text(
+                "Clicks: ${c.count}. it ${c.isBigInt ? 'is' : 'is not'} a big number",
+                style: TextStyle(
+                  color: c.isBigInt ? Colors.red : Colors.green,
+                ),
+              );
+            }),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        // onPressed: c.increment,
         onPressed: () {
-          // NOTE: it is reactive
-          // c.increment();
-
-          // NOTE: it is not reactive!!!
-          c.count = 13.obs;
+          c.increment();
         },
       ),
     );
