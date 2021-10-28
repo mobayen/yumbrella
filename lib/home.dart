@@ -44,12 +44,12 @@ class Home extends StatelessWidget {
               height: 15,
             ),
             ElevatedButton(
-              child: const Text("Sshape: quare"),
-              onPressed: () => Get.to(SquarePage()),
+              child: const Text("x Shape: quare x"),
+              onPressed: () => Get.to(const SquarePage()),
             ),
             ElevatedButton(
               child: const Text("Shape: rectangle"),
-              onPressed: () => Get.to(RectanglePage()),
+              onPressed: () => Get.to(const RectanglePage()),
             ),
           ],
         ),

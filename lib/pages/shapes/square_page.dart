@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:yumbrella/models/magic_square.dart';
 
-class SquarePage extends StatelessWidget {
+class SquarePage extends StatefulWidget {
   const SquarePage({Key? key}) : super(key: key);
 
   @override
+  _SquarePageState createState() => _SquarePageState();
+}
+
+class _SquarePageState extends State<SquarePage> {
+  @override
   Widget build(BuildContext context) {
     MagicSquare ms = Get.put(MagicSquare(length: 12.3));
+    TextEditingController _textFormField = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -26,11 +32,23 @@ class SquarePage extends StatelessWidget {
           Text('the shape background: ${ms.background}'),
           ElevatedButton(
             onPressed: () {
-              ms.length = 3.3;
-              print(ms.area());
+              setState(() {
+                ms.length = double.parse(_textFormField.text);
+              });
             },
-            child: Text('set the length to 3.3'),
+            child: const Text('set the new length'),
           ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: TextFormField(
+              controller: _textFormField,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                hintText: 'Enter a number',
+              ),
+            ),
+          )
         ],
       ),
     );
