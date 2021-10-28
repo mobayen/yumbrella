@@ -1,12 +1,13 @@
+import 'package:get/get.dart';
 import 'package:yumbrella/contracts/colorful.dart';
 import 'package:yumbrella/contracts/shapes/rectangle.dart';
 
-class MagicSquare implements Rectangle, Colorful {
+class MagicSquare extends GetxController implements Rectangle, Colorful {
   /// it has to stay 'true' always
   final bool _isSquare = true;
 
-  late double _length;
-  late double _width;
+  late RxDouble _length;
+  late RxDouble _width;
 
   late String _background;
   late String _forground;
@@ -16,8 +17,8 @@ class MagicSquare implements Rectangle, Colorful {
     background = 'blue',
     forground = 'yellow',
   }) {
-    _length = length;
-    _width = length;
+    _length = length.obs;
+    _width = length.obs;
     _background = background;
     _forground = forground;
   }
@@ -32,41 +33,41 @@ class MagicSquare implements Rectangle, Colorful {
   }
 
   /// setter and getter: length
-  /// begause it is a square, both width nd length get changed at the same time
   @override
   set length(double v) {
-    _width = v;
-    _length = v;
+    /// both width and length get changed at the same time
+    _width.value = v;
+    _length.value = v;
   }
 
   @override
   double get length {
-    return _length;
+    return _length.value;
   }
 
   /// setter and getter: width
   @override
   double get width {
-    return _width;
+    return _width.value;
   }
 
   /// begause it is a square, both width nd length get changed at the same time
   @override
   set width(double v) {
-    _width = v;
-    _length = v;
+    _width.value = v;
+    _length.value = v;
   }
 
   /// calculates the area
   @override
   double area() {
-    return _length * _width;
+    return _length.value * _width.value;
   }
 
   /// calculates the perimiter
   @override
   double perimeter() {
-    return 2 * (_length + _width);
+    return 2 * (_length.value + _width.value);
   }
 
   // /// the color Setter
