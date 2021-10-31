@@ -6,6 +6,7 @@ import 'package:yumbrella/menu_list_page.dart';
 import 'package:yumbrella/menu_page.dart';
 import 'package:yumbrella/pages/shapes/rectangle_page.dart';
 import 'package:yumbrella/pages/shapes/square_page.dart';
+import 'package:yumbrella/pages/repositories/repository_page.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -61,6 +62,10 @@ class Home extends StatelessWidget {
                 ),
               );
             }),
+            ElevatedButton(
+              child: const Text("Repository page"),
+              onPressed: () => Get.to(const RepositoryPage()),
+            ),
           ],
         ),
       ),
